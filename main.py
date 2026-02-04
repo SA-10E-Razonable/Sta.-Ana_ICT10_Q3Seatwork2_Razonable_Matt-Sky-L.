@@ -15,32 +15,31 @@ def intrams_checker(e):
         'input[name="clearance"]:checked'
     )
 
-    # If the user did not select registration or clearance, show an error
-    if not registration_el or not clearance_el:
+    # Get the grade level and section from the dropdowns
+    grade_value = document.getElementById('level').value
+    section = document.getElementById('section').value
+
+    # If any question or dropdown is blank, show an error
+    if not registration_el or not clearance_el or grade_value == '' or section == '':
         display(
-            "❌ Please answer all the questions before proceeding.",
+            "❌ Please answer all the questions and select your grade and section before proceeding.",
             target="output"
         )
-        return  # Stop the function here if any question is unanswered
+        return  # Stop the function here if any question or dropdown is unanswered
 
+    # Convert grade level to number
+    grade_level = int(grade_value)
     # Get the values of the selected options
     registration = registration_el.value  # "registered" or "not_registered"
     clearance = clearance_el.value        # "cleared" or "not_cleared"
 
-    # Get the grade level from the dropdown (convert to number)
-    grade_level = int(document.getElementById('level').value)
-    # Get the section from the dropdown (emerald, ruby, sapphire, topaz)
-    section = document.getElementById('section').value
-
     # Check if the user is eligible for Intramurals
     if registration != 'registered':
-        # User is not registered yet
         display(
             "😞 Not eligible. You are not yet registered for Intramurals.",
             target='output'
         )
     elif clearance != 'cleared':
-        # User does not have medical clearance
         display(
             "😞 Not eligible. Medical clearance is required.",
             target='output'
@@ -52,7 +51,6 @@ def intrams_checker(e):
             "Welcome to Green hornets — strength, unity, and sportsmanship!",
             target='output'
         )
-        # Show corresponding image for the team
         document.getElementById("image").innerHTML = "<img src='Green.png' width='300'>"
     elif section == 'ruby':
         display(
@@ -76,7 +74,3 @@ def intrams_checker(e):
             target='output'
         )
         document.getElementById("image").innerHTML = "<img src='Yellow.png' width='300'>"
-
-
-
-
