@@ -35,7 +35,7 @@ def intrams_checker(e):
             target='output'
         )
 
-    elif section == 'emerald':
+    elif section == 'Emerald':
         display(
             "🎉 Congratulations!!! 💚\n"
             "Welcome to EMERALD — strength, unity, and sportsmanship!", 
@@ -45,7 +45,7 @@ def intrams_checker(e):
             "<img src='Green.png' width='300'>"
         )
 
-    elif section == 'ruby':
+    elif section == 'Ruby':
         display(
             "🎉 Congratulations!!! ❤️\n"
             "You are officially part of RUBY — passion and power on the field!", 
@@ -55,7 +55,7 @@ def intrams_checker(e):
             "<img src='Red.png' width='300'>"
         )
 
-    elif section == 'sapphire':
+    elif section == 'Sapphire':
         display(
             "🎉 Congratulations!!! 💙\n"
             "SAPPHIRE it is — calm minds, sharp skills, strong wins!", 
@@ -74,4 +74,5 @@ def intrams_checker(e):
         document.getElementById("image").innerHTML = (
             "<img src='Yellow.png' width='300'>"
         )
+
 
