@@ -35,30 +35,30 @@ def intrams_checker(e):
             target='output'
         )
 
-    elif section == 'Emerald':
+    elif section == 'emerald':
         display(
             "🎉 Congratulations!!! 💚\n"
-            "Welcome to EMERALD — strength, unity, and sportsmanship!", 
+            "Welcome to Green hornets — strength, unity, and sportsmanship!", 
             target='output'
         )
         document.getElementById("image").innerHTML = (
             "<img src='Green.png' width='300'>"
         )
 
-    elif section == 'Ruby':
+    elif section == 'ruby':
         display(
             "🎉 Congratulations!!! ❤️\n"
-            "You are officially part of RUBY — passion and power on the field!", 
+            "You are officially part of Red bulldogs — passion and power on the field!", 
             target='output'
         )
         document.getElementById("image").innerHTML = (
             "<img src='Red.png' width='300'>"
         )
 
-    elif section == 'Sapphire':
+    elif section == 'sapphire':
         display(
             "🎉 Congratulations!!! 💙\n"
-            "SAPPHIRE it is — calm minds, sharp skills, strong wins!", 
+            "Blue bears it is — calm minds, sharp skills, strong wins!", 
             target='output'
         )
         document.getElementById("image").innerHTML = (
@@ -68,11 +68,12 @@ def intrams_checker(e):
     else:
         display(
             "🎉 Congratulations!!! 💛\n"
-            "Welcome to TOPAZ — bright energy and unstoppable teamwork!", 
+            "Welcome to Yellow tigers — bright energy and unstoppable teamwork!", 
             target='output'
         )
         document.getElementById("image").innerHTML = (
             "<img src='Yellow.png' width='300'>"
         )
+
 
 
