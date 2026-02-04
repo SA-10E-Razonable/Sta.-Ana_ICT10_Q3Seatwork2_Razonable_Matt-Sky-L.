@@ -20,12 +20,41 @@
         body {
             font-family: 'League Spartan', sans-serif;
             background-image: url("Background.png");
+            background-repeat: no-repeat;
             background-size: 100% 100%;
         }
 
         .card {
             background-color: transparent;
             border: none;
+        }
+
+        /* Header + logo */
+        .header-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 24px;
+        }
+
+        .logo {
+            height: 5.5rem;       /* approx height of h1 + subtitle */
+            object-fit: contain;
+            margin-top:-25px;
+        }
+
+        h1 {
+            color: #9E1B1B;
+            font-weight: 700;
+            font-size: 2.8rem;
+            margin-bottom: 0;
+        }
+
+        .subtitle {
+            font-weight: 700;
+            font-size: 2.4rem;
+            margin-top: -10px;
+            margin-bottom: 24px;
         }
 
         .bar {
@@ -61,7 +90,6 @@
             gap: 80px;
             margin-bottom: 28px;
             margin-left: 30px;
-            appearance: none;
             font-size: 1rem;
         }
 
@@ -98,98 +126,89 @@
             box-shadow: 0 6px 14px rgba(0,0,0,0.25);
         }
 
-        h1 {
-            color: #9E1B1B;
-            font-weight: 700;
-            font-size: 2.8rem;
-            margin-bottom: 0px;
+        #output {
+            text-align: center;
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-top: 20px;
         }
 
-        .subtitle {
-            font-weight: 700;       
-            font-size: 2.4rem;      
-            margin-top: -10px;        
-            margin-bottom: 24px;    
+        #image {
+            text-align: center;
+            margin-top: 15px;
         }
-
-          #output {
-      text-align: center;      
-      font-size: 1.2rem;        
-      font-weight: 600;          
-      margin-top: 20px;          
-  }
-
-  #image {
-      text-align: center;       
-      margin-top: 15px;
-  }
-
     </style>
 </head>
 
-<body class="d-flex justify-content-center align-items-center vh-100">
-<div class="card p-4 w-75">
+<body class="d-flex justify-content-center align-items-start py-4">
+    <div class="card p-4 w-75">
 
-    <h1>INTRAMURALS</h1>
-    <h4 class="subtitle">Registration Form</h4>
+        <!-- Header with logo -->
+        <div class="header-wrapper">
+            <img src="logo.png" alt="Logo" class="logo">
+            <div>
+                <h1>INTRAMURALS</h1>
+                <h4 class="subtitle">Registration Form</h4>
+            </div>
+        </div>
 
-    <div class="bar">
-        <div class="pen-box"><img src="Pen.png" alt="pen"></div>
-        Are you done with the online registration?
+        <!-- Registration question -->
+        <div class="bar">
+            <div class="pen-box"><img src="Pen.png" alt="pen"></div>
+            Are you done with the online registration?
+        </div>
+        <div class="radio-group">
+            <label><input type="radio" name="registration" value="registered"> Yes</label>
+            <label><input type="radio" name="registration" value="not_registered"> No</label>
+        </div>
+
+        <!-- Medical clearance question -->
+        <div class="bar">
+            <div class="pen-box"><img src="Pen.png" alt="pen"></div>
+            Do you have medical clearance from the clinic?
+        </div>
+        <div class="radio-group">
+            <label><input type="radio" name="clearance" value="cleared"> Yes</label>
+            <label><input type="radio" name="clearance" value="not_cleared"> No</label>
+        </div>
+
+        <!-- Grade and section -->
+        <div class="bar">
+            <div class="pen-box"><img src="Pen.png" alt="pen"></div>
+            What are your grade and section?
+        </div>
+        <div class="dropdown-row">
+            <select id="level">
+                <option selected disabled></option>
+                <option>7</option>
+                <option>8</option>
+                <option>9</option>
+                <option>10</option>
+            </select>
+
+            <select id="section">
+                <option selected disabled></option>
+                <option value="emerald">Emerald</option>
+                <option value="ruby">Ruby</option>
+                <option value="sapphire">Sapphire</option>
+                <option value="topaz">Topaz</option>
+            </select>
+        </div>
+
+        <!-- Sign up button -->
+        <div class="bar signup" id="check-btn" py-click="intrams_checker">
+            <div class="pen-box"><img src="Pen.png" alt="pen"></div>
+            Sign up!
+        </div>
+
+        <!-- Output -->
+        <div id="output"></div>
+        <div id="image"></div>
+
     </div>
-
-    <div class="radio-group">
-        <label><input type="radio" name="registration" value="registered"> Yes</label>
-        <label><input type="radio" name="registration" value="not_registered"> No</label>
-    </div>
-
-    <div class="bar">
-        <div class="pen-box"><img src="Pen.png" alt="pen"></div>
-        Do you have medical clearance from the clinic?
-    </div>
-
-    <div class="radio-group">
-        <label><input type="radio" name="clearance" value="cleared"> Yes</label>
-        <label><input type="radio" name="clearance" value="not_cleared"> No</label>
-    </div>
-
-    <div class="bar">
-        <div class="pen-box"><img src="Pen.png" alt="pen"></div>
-        What are your grade and section?
-    </div>
-
-    <div class="dropdown-row">
-        <select id="level">
-            <option selected disabled></option>
-            <option>7</option>
-            <option>8</option>
-            <option>9</option>
-            <option>10</option>
-        </select>
-
-        <select id="section">
-            <option selected disabled></option>
-            <option value="emerald">Emerald</option>
-            <option value="ruby">Ruby</option>
-            <option value="sapphire">Sapphire</option>
-            <option>Topaz</option>
-        </select>
-    </div>
-
-    <div class="bar signup" id="check-btn" py-click="intrams_checker">
-        <div class="pen-box"><img src="Pen.png" alt="pen"></div>
-       Sign up!
-    </div>
-
-    <div id="output"></div>
-    <div id="image"></div>
-
-</div>
     <script type="py" src="main.py"></script>
 </body>
-
 </html>
-
 
 
 
