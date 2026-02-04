@@ -14,12 +14,12 @@
     <link rel="stylesheet" href="https://pyscript.net/releases/2025.7.3/core.css">
     <script type="module" src="https://pyscript.net/releases/2025.7.3/core.js"></script>
 
-    <title>Intramurals Form</title>
+    <title>Intrams</title>
 
     <style>
         body {
             font-family: 'League Spartan', sans-serif;
-            background-image: url("Background.png");
+            background-image: url("background.png");
             background-size: 100% 100%;
         }
 
@@ -28,16 +28,15 @@
             border: none;
         }
 
-        /* Red bar + pen */
         .bar {
             display: flex;
             align-items: center;
             background-color: #9E1B1B;
-            color: white;
+            color: #fff3c2;
             padding: 14px 18px;
             border-radius: 4px;
             font-weight: 600;
-            font-size: 1.2rem; /* reduced from 1.3rem */
+            font-size: 1.2rem;
             margin-bottom: 14px;
             box-shadow: 0 4px 8px rgba(0,0,0,0.15);
         }
@@ -57,13 +56,13 @@
             height: 20px;
         }
 
-        /* Radio buttons */
         .radio-group {
             display: flex;
             gap: 80px;
             margin-bottom: 28px;
             margin-left: 30px;
-            font-size: 1rem; /* reduced from 1.2rem */
+            appearance: none;
+            font-size: 1rem;
         }
 
         .radio-group input[type="radio"] {
@@ -72,7 +71,6 @@
             margin-right: 10px;
         }
 
-        /* Dropdowns */
         .dropdown-row {
             display: flex;
             gap: 60px;
@@ -85,15 +83,14 @@
             padding: 14px;
             width: 220px;
             font-weight: 600;
-            font-size: 1rem; /* reduced from 1.2rem */
+            font-size: 1rem;
         }
 
-        /* Sign up bar */
         .signup {
             cursor: pointer;
             margin-top: 24px;
             transition: 0.2s ease;
-            font-size: 1rem; /* optional, added for slight reduction */
+            font-size: 1.2rem;
         }
 
         .signup:hover {
@@ -104,21 +101,25 @@
         h1 {
             color: #9E1B1B;
             font-weight: 700;
-            font-size: 2.8rem; /* reduced from 3rem */
+            font-size: 2.8rem;
+            margin-bottom: 0px;
         }
 
-        h4 {
-            font-weight: 600;
-            font-size: 1.4rem; /* reduced from 1.6rem */
+        .subtitle {
+            font-weight: 700;       
+            font-size: 2.4rem;      
+            margin-top: -10px;        
+            margin-bottom: 24px;    
         }
+
     </style>
 </head>
 
 <body class="d-flex justify-content-center align-items-center vh-100">
 <div class="card p-4 w-75">
 
-    <h1>INTRAMURALS FORM</h1>
-    <h4>Register now!</h4>
+    <h1>INTRAMURALS</h1>
+    <h4 class="subtitle">Registration Form</h4>
 
     <div class="bar">
         <div class="pen-box"><img src="Pen.png" alt="pen"></div>
@@ -126,8 +127,8 @@
     </div>
 
     <div class="radio-group">
-        <label><input type="radio" name="reg"> Yes</label>
-        <label><input type="radio" name="reg"> No</label>
+        <label><input type="radio" name="registration" value="registered"> Yes</label>
+        <label><input type="radio" name="registration" value="not_registered"> No</label>
     </div>
 
     <div class="bar">
@@ -136,8 +137,8 @@
     </div>
 
     <div class="radio-group">
-        <label><input type="radio" name="med"> Yes</label>
-        <label><input type="radio" name="med"> No</label>
+        <label><input type="radio" name="clearance" value="cleared"> Yes</label>
+        <label><input type="radio" name="clearance" value="not_cleared"> No</label>
     </div>
 
     <div class="bar">
@@ -163,14 +164,21 @@
         </select>
     </div>
 
-    <div class="bar signup">
+    <div class="bar signup" id="check-btn">
         <div class="pen-box"><img src="Pen.png" alt="pen"></div>
-        View results!
+       Sign up!
     </div>
+
+    <div id="output"></div>
+    <div id="image"></div>
 
 </div>
 </body>
+
+    <script type="py" src="main.py"></script>
 </html>
+
+
 
 
 
