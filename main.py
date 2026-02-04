@@ -16,13 +16,11 @@ def intrams_checker(e):
         'input[name="clearance"]:checked'
     )
 
-    # If the user did not select registration or clearance, show an error
-    if not registration_el or not clearance_el:
-        display(
-            "❌ Please answer all the questions before proceeding.", 
-            target="output"
-        )
-        return  # Stop the function here if any question is unanswered
+    # If the user did not fill up everything, show an error
+    required_fields = [registration_el, clearance_el, grade_el.value, section_el.value]
+    if any(field is None or field == '' for field in required_fields):
+        display("❌ Please answer all the questions before proceeding.", target="output")
+        return
 
     # Get the values of the selected options
     registration = registration_el.value   # "registered" or "not_registered"
@@ -91,6 +89,7 @@ def intrams_checker(e):
         document.getElementById("image").innerHTML = (
             "<img src='Yellow.png' width='300'>"
         )
+
 
 
 
